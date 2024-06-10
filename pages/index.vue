@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="assets/image.png" alt="sign_in_image">
+        <img src="/images/signin_image.png" alt="signin_image">
         <div class="right_container">
             <div class="sign_in_container">
                 <div class="logo">
