@@ -9,6 +9,12 @@
                     <h4 class="account_text_small">Already have an account? <NuxtLink to="/">Sign in</NuxtLink><br></h4>
                 </div>
 
+                <div class="steps">
+                    <div class="line"></div>
+                    <div class="curr-step">Step 1 / 3</div>
+                    <div class="line"></div>
+                </div>
+
                 <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
                     <UFormGroup name="full-name">
                         <label id="prof_email_add" for="full-name">Full Name</label><br>
@@ -140,6 +146,26 @@ body {
     color: #6A6C77;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.line {
+    height: 2px;
+    width: 250px;
+    background-color: #00E198;
+}
+
+.curr-step {
+    background-color: #00E198;
+    padding: 4px 12px 4px 12px;
+    border-radius: 50px;
+    color: #ffffff;
 }
 
 #prof_email_add {
