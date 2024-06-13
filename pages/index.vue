@@ -10,23 +10,19 @@
                         takes less than a minute</h4>
                 </div>
 
-                <div class="input_container">
-                    <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
-                        <UFormGroup name="email" class="mb-8">
-                            <label id="prof_email_add">Professional email address</label><br>
-                            <UInput type="email" icon="i-mage-email" v-model="state.email" :class="['input_box']"
-                                id="email_field" />
-                        </UFormGroup>
+                <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
+                    <UFormGroup name="email" class="mb-8">
+                        <label id="prof_email_add">Professional email address</label><br>
+                        <UInput type="email" icon="i-mage-email" v-model="state.email" :class="['input_box']"
+                            id="email_field" />
+                    </UFormGroup>
+                    <UFormGroup class="form-box">
+                        <UInput type="password" icon="i-mage-lock" name="password" v-model="state.password"
+                            :class="['input_box']" id="email_field" />
+                        <UIcon name="i-mage-eye-off" id="eye-icon" />
+                    </UFormGroup>
+                </UForm>
 
-                        <!-- <div class="input_box_2"> -->
-                        <UFormGroup>
-                            <UInput type="password" icon="i-mage-lock" name="password" v-model="state.password"
-                                :class="['input_box']" id="email_field" />
-                            <!-- <UIcon name="i-mage-eye-off" /> -->
-                        </UFormGroup>
-                    </UForm>
-
-                </div>
                 <a href="#">Recover Password</a><br>
 
                 <UButton type="submit" icon="i-mage-arrow-right" id="next_button" />
@@ -62,14 +58,6 @@ const state = ref({
 const resetForm = () => {
     Object.assign(state.value, initialState)
 }
-
-// const isOpen = computed({
-//     get: () => props.modelValue,
-//     set: (value) => {
-//         if (!value) resetForm()
-//         emit(event: 'update:modeValue', value)
-//     }
-// })
 </script>
 
 <style>
@@ -167,6 +155,21 @@ body {
     border-radius: 8px;
     padding: 11px 14px 11px 14px;
     margin-bottom: 30px;
+    padding-right: 40px;
+}
+
+.form-box {
+    position: relative;
+}
+
+#eye-icon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #9d9b9b;
+    font-size: 20px;
 }
 
 #email_field {
@@ -174,10 +177,6 @@ body {
     padding: 10px 45px;
     margin-left: -14px;
     width: 608px;
-}
-
-.eye_closed_icon {
-    float: right;
 }
 
 a {
@@ -194,5 +193,4 @@ a {
     border: none;
     justify-content: center;
     align-items: center
-}
-</style>
+}</style>
