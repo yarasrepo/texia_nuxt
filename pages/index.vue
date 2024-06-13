@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <img src="/images/signin_image.png" alt="signin_image" class="sign_in_image">
+        <img src="/images/signin_image.png" alt="signin" class="sign_in_image">
         <div class="right_container">
             <div class="sign_in_container">
                 <img src="/img/logo.png" alt="logo" class="logo-image">
@@ -12,7 +12,7 @@
 
                 <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
                     <UFormGroup name="email" class="mb-8">
-                        <label id="prof_email_add">Professional email address</label><br>
+                        <label id="prof_email_add" for="email">Professional email address</label><br>
                         <UInput type="email" icon="i-mage-email" v-model="state.email" :class="['input_box']"
                             id="email_field" />
                     </UFormGroup>
