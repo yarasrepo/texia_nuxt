@@ -6,17 +6,17 @@
                 <img src="/img/logo.png" alt="logo" class="logo-image">
                 <div class="account_text">
                     <h1 class="welcome_text">Welcome back to Texia,<br>sign in to continue</h1>
-                    <h4 class="account_text_small">Don't have an account? <a href="#">Create new account</a><br>It
+                    <h4 class="account_text_small">Don't have an account? <NuxtLink to="register">Create new account</NuxtLink><br>It
                         takes less than a minute</h4>
                 </div>
 
                 <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
                     <UFormGroup name="email" class="mb-8">
                         <label id="prof_email_add" for="email">Professional email address</label><br>
-                        <UInput type="email" icon="i-mage-email" v-model="state.email" id="input_box" />
+                        <UInput type="email" variant="none" icon="i-mage-email" v-model="state.email" id="input_box" />
                     </UFormGroup>
                     <UFormGroup class="form-box">
-                        <UInput type="password" icon="i-mage-lock" name="password" v-model="state.password"
+                        <UInput type="password" variant="none" icon="i-mage-lock" name="password" v-model="state.password"
                         id="input_box"/>
                         <UIcon name="i-mage-eye-off" id="eye-icon" />
                     </UFormGroup>
@@ -128,7 +128,7 @@ body {
 
 .welcome_text {
     font-size: 36px;
-    font-weight: bold;
+    font-weight: lighter;
     font-style: italic;
 }
 

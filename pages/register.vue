@@ -5,22 +5,22 @@
             <div class="sign_in_container">
                 <img src="/img/logo.png" alt="logo" class="logo-image">
                 <div class="account_text">
-                    <h1 class="welcome_text">Welcome back to Texia,<br>sign in to continue</h1>
-                    <h4 class="account_text_small">Already have an account? <a href="#">Sign in</a><br></h4>
+                    <h1 class="welcome_text">Get started with TEXIA</h1>
+                    <h4 class="account_text_small">Already have an account? <NuxtLink to="/">Sign in</NuxtLink><br></h4>
                 </div>
 
                 <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
                     <UFormGroup name="full-name">
                         <label id="prof_email_add" for="full-name">Full Name</label><br>
-                        <UInput type="text" icon="i-mage-user" id="input_box"  />
+                        <UInput type="text" variant="none" icon="i-mage-user" id="input_box"  />
                     </UFormGroup>
                     <UFormGroup name="email">
                         <label id="prof_email_add" for="email">Professional email address</label><br>
-                        <UInput type="email" icon="i-mage-email" v-model="state.email" id="input_box" />
+                        <UInput type="email" variant="none" icon="i-mage-email" v-model="state.email" id="input_box" />
                     </UFormGroup>
                     <div class="phone-container">
-                    <USelect v-model="country" :options="countries" id="phone-selector"/>
-                    <UInput type="tel" id="phone-input"></UInput>
+                    <USelect v-model="country" variant="none" :options="countries" id="phone-selector"/>
+                    <UInput type="tel" variant="none" id="phone-input"></UInput>
                     </div>
                 </UForm>
 
@@ -130,7 +130,7 @@ body {
 
 .welcome_text {
     font-size: 36px;
-    font-weight: bold;
+    font-weight: lighter;
     font-style: italic;
 }
 
