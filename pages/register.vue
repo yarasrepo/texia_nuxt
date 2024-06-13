@@ -1,28 +1,28 @@
 <template>
     <div class="container">
-        <img src="/img/signin_image.png" alt="signin" class="sign_in_image">
+        <img src="/img/register_image.png" alt="register" class="register_image">
         <div class="right_container">
             <div class="sign_in_container">
                 <img src="/img/logo.png" alt="logo" class="logo-image">
                 <div class="account_text">
                     <h1 class="welcome_text">Welcome back to Texia,<br>sign in to continue</h1>
-                    <h4 class="account_text_small">Don't have an account? <a href="#">Create new account</a><br>It
-                        takes less than a minute</h4>
+                    <h4 class="account_text_small">Already have an account? <a href="#">Sign in</a><br></h4>
                 </div>
 
                 <UForm :state="state" :schema="schema" ref="form" @submit.prevent="save">
-                    <UFormGroup name="email" class="mb-8">
+                    <UFormGroup name="full-name">
+                        <label id="prof_email_add" for="full-name">Full Name</label><br>
+                        <UInput type="text" icon="i-mage-user" id="input_box"  />
+                    </UFormGroup>
+                    <UFormGroup name="email">
                         <label id="prof_email_add" for="email">Professional email address</label><br>
                         <UInput type="email" icon="i-mage-email" v-model="state.email" id="input_box" />
                     </UFormGroup>
-                    <UFormGroup class="form-box">
-                        <UInput type="password" icon="i-mage-lock" name="password" v-model="state.password"
-                        id="input_box"/>
-                        <UIcon name="i-mage-eye-off" id="eye-icon" />
-                    </UFormGroup>
+                    <div class="phone-container">
+                    <USelect v-model="country" :options="countries" id="phone-selector"/>
+                    <UInput type="tel" id="phone-input"></UInput>
+                    </div>
                 </UForm>
-
-                <a href="#">Recover Password</a><br>
 
                 <UButton type="submit" icon="i-mage-arrow-right" id="next_button" />
             </div>
@@ -54,9 +54,9 @@ const state = ref({
     ...initialState
 })
 
-const resetForm = () => {
-    Object.assign(state.value, initialState)
-}
+const countries = ['US', 'CA', 'FR']
+
+const country = ref(countries[0])
 </script>
 
 <style>
@@ -94,9 +94,11 @@ body {
     display: flex;
 }
 
-.sign_in_image {
+.register_image {
     height: 100%;
     border-radius: 12px;
+    width: 584px;
+    height: 731px;
 }
 
 .right_container {
@@ -155,6 +157,7 @@ body {
     padding: 11px 14px 11px 14px;
     margin-bottom: 30px;
     padding-right: 40px;
+    outline: none;
 }
 
 .form-box {
@@ -171,11 +174,22 @@ body {
     font-size: 20px;
 }
 
-#email_field {
-    margin-top: -10px;
-    padding: 10px 45px;
-    margin-left: -14px;
-    width: 608px;
+.phone-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#phone-input {
+    width: 530px;
+    height: 43px;
+    background-color: #F5F5FA;
+    margin-top: 10px;
+}
+
+#phone-selector {
+    height: 43px;
+    background-color: #F5F5FA;
+    margin-top: 10px;
 }
 
 a {
@@ -189,8 +203,10 @@ a {
     height: 48px;
     padding: 12px 24px 12px 70px;
     border-radius: 100px;
-    margin-top: 30px;
+    margin-top: 40px;
     border: none;
     justify-content: center;
     align-items: center
-}</style>
+}
+
+</style>
